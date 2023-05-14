@@ -31,7 +31,7 @@ function displayHiddenWork(event) {
             workLoadMoreBtn.style = "display:none";
 
         }
-    }, 3000)
+    }, 2000)
 }
 
 
