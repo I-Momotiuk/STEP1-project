@@ -42,21 +42,23 @@ console.log(servicesNavList);
 servicesNavBar.addEventListener('click', switchServicesTabs);
 
 function switchServicesTabs(event) {
+    if(!event.target.classList.contains('.nav-services-item-active')) {
     let activeTab = event.target.getAttribute('data-id');
     servicesNavList.map((item) => {
         if (item.getAttribute('id') === activeTab && !item.classList.contains('nav-services-descriptions-item-active')) {
             item.classList.replace('nav-services-descriptions-item', 'nav-services-descriptions-item-active');
-        } else if (item.getAttribute('id') !== activeTab || item.classList.contains('nav-services-descriptions-item-active')) {
+        } else if (item.getAttribute('id') !== activeTab) {
             item.classList.replace('nav-services-descriptions-item-active', 'nav-services-descriptions-item');
         }
     })
     servicesNavElements.map((item) => {
-        if (event.target === item && !event.target.classList.contains('nav-services-item-active')) {
+        if (event.target === item) {
             item.classList.replace('nav-services-item', 'nav-services-item-active')
-        } else if (event.target !== item || event.target.classList.contains('nav-services-item-active')) {
+        } else if (event.target !== item) {
             item.classList.replace('nav-services-item-active', 'nav-services-item')
         }
     })
+    }
 }
 
 
